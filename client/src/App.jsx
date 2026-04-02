@@ -84,10 +84,10 @@ function App() {
         </div>
       </div>
 
-      /* MAIN */
+      {/* MAIN */}
       <div className="flex-1 w-full">
 
-        /*MOBILE HEADER */
+        {/*MOBILE HEADER */}
         <div className="md:hidden bg-[#0f172a] text-white px-4 py-3 flex items-center justify-between">
           <button onClick={() => setOpenSidebar(true)}>
             <Menu />
@@ -95,12 +95,12 @@ function App() {
           <h1 className="font-semibold capitalize">{page}</h1>
         </div>
 
-        /* DESKTOP HEADER */
+        {/* DESKTOP HEADER */}
         <div className="hidden md:flex bg-white px-6 py-4 shadow-sm justify-between items-center">
           <h1 className="text-xl font-semibold capitalize">{page}</h1>
         </div>
 
-        /* CONTENT */
+        {/* CONTENT */}
         <div className="p-4 md:p-6">
           {page === "dashboard" && <Dashboard />}
           {page === "patients" && <Patients />}
