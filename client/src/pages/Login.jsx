@@ -1,6 +1,10 @@
 import { useState } from "react";
 
 function Login({ setIsLoggedIn }) {
+  const apiBaseUrl = (
+    import.meta.env.VITE_API_BASE_URL ||
+    "https://curalink-backend-uusi.onrender.com"
+  ).replace(/\/$/, "");
   const [isRegister, setIsRegister] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -8,8 +12,8 @@ function Login({ setIsLoggedIn }) {
   const handleSubmit = async () => {
     try {
       const url = isRegister
-        ? "https://curalink-backend-uusi.onrender.com/register"
-        : "https://curalink-backend-uusi.onrender.com/login";
+        ? `${apiBaseUrl}/register`
+        : `${apiBaseUrl}/login`;
 
       const res = await fetch(url, {
         method: "POST",
@@ -32,7 +36,7 @@ function Login({ setIsLoggedIn }) {
       }
 
     } catch (err) {
-      alert(err.message);
+      alert(err.message || "Unable to reach backend service");
     }
   };
 
